@@ -18,7 +18,7 @@ while remaining_depth > 0 do
 			turtle.turnLeft()
 			turtle.digUp()
 		end
-		remaining_height -= 1
+		remaining_height = remaining_height - 1
 	end
-	remaining_depth -= 1
+	remaining_depth = remaining_depth - 1
 end
