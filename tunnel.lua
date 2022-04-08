@@ -18,7 +18,7 @@ while remaining_depth > 0 do
 	end
 
 	y_advance = 0
-	while y_advance < height-1 do
+	while y_advance < height do
 		for i=1,width-1 do
 			turtle.dig()
 			turtle.forward()
@@ -26,12 +26,15 @@ while remaining_depth > 0 do
 		turtle.turnLeft()
 		turtle.turnLeft()
 		dir_x = -dir_x
-		if dir_y == 1 then
-			turtle.digUp()
-			turtle.up()
-		else
-			turtle.digDown()
-			turtle.down()
+
+		if y_advance ~= height - 1 then
+			if dir_y == 1 then
+				turtle.digUp()
+				turtle.up()
+			else
+				turtle.digDown()
+				turtle.down()
+			end
 		end
 		y_advance = y_advance + 1
 	end
