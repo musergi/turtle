@@ -6,6 +6,14 @@ depth = tonumber(arg[3])
 dir_x = 1 -- 1: right, -1: left
 dir_y = 1 -- 1: up, -1: down
 
+function advance(distance)
+	for i=1,distance do
+		repeat
+			turtle.dig()
+		until (turtle.forward())
+	end
+end
+
 remaining_depth = depth
 while remaining_depth > 0 do
 	turtle.dig()
@@ -19,10 +27,7 @@ while remaining_depth > 0 do
 
 	y_advance = 0
 	while y_advance < height do
-		for i=1,width-1 do
-			turtle.dig()
-			turtle.forward()
-		end
+		advance(width - 1)
 		turtle.turnLeft()
 		turtle.turnLeft()
 		dir_x = -dir_x
